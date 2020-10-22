@@ -36,6 +36,7 @@ function hours() {
 }
 
 // -----------------------------------------------------
+let score = 0;
 let div = document.querySelector('img');
 let leftOffset = 0;
 let topOffset = 0;
@@ -56,6 +57,13 @@ function moveHeading() {
   if (topOffset > heigth - heigthString - 4) {
     topOffset = -topOffset;
   }
+  $("#score").text(score);
 }
 
-setInterval(moveHeading, 20);
+setInterval(moveHeading, 1000);
+$("#main-heading").click(bingo);
+
+function bingo(){
+  score+=1;
+  setInterval(moveHeading, 1000/(score+1));
+};
